@@ -1,0 +1,51 @@
+PLAN FOR BACKEND
+
+/\* PLAN
+
+1. install all dependencies - npm i ✅
+
+
+3. Set up new app on heroku ✅
+
+   - navigate to heroku.com and create a new app ✅
+   - Install heroku postgreSQL addon ✅
+   - Navigate to app dahsboard and get credentials from settings for the app ✅
+
+4. create .env file to store credentials ✅
+
+   - create .env file ✅
+   - check to make sure .env file has been added to .gitignore ✅
+   - populate .env file with PORT = 3000 for locoalhost:3000 testing ✅
+
+5. Create scripts folder in DB folder: ✅
+
+   - create script .js file to create table on Heroku ✅
+   - create a index.js file for PG Pool settings inside DB folder ✅
+
+6. in package.json file add "node -r dotenv/config app.js" to start script ✅
+
+7. Create a journal.js file in Router and write the functionality ✅
+
+   - Import Express ✅
+   - set up express router ✅
+   - Import model functions 
+   - Get request 
+   - Post request 
+   - export the default router ✅
+
+8. Create a journal.js file in Models and write the functionality 
+
+
+9. set up pool in db index.js file ✅
+
+   - import PG ✅
+   - set up PG values ✅
+
+10. update scripts with sqlSTRING for Heroku ✅
+
+    - make async function for creating a movie table 
+    ??? 
+    - make async function for updating the movie table
+    - make async function for deleting entries
+
+11. import routers to app.js ✅
