@@ -9,6 +9,3 @@ export const pool = new pg.Pool({
 	ssl: { rejectUnauthorized: false },
 });
 
-const response = await pool.query('SELECT NOW()');
-
-console.log(response)
