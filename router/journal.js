@@ -20,7 +20,8 @@ router.get('/', async function (req, res) {
 router.post('/', function (req, res) {
 	const newJournal = req.body;
 	const result = createJournal(newJournal);
+	console.log(result)
 	res.json({ success: true, payload: result });
 });
 
-export default journalRouter;
+export default router;

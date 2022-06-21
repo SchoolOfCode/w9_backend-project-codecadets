@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors"; 
 import bodyParser from 'body-parser';
-import journalRouter from "./router/journal.js";
+import router from "./router/journal.js";
 
 // import { router } from "./router/journals.js"
 const PORT = process.env.port || 3000;
@@ -10,7 +10,7 @@ const PORT = process.env.port || 3000;
 const app = express();
 
 // journal router
-app.use("/journal", journalRouter);
+app.use("/journal", router);
 
 // // create application/json parser
 // const jsonParser = bodyParser.json()
@@ -31,5 +31,5 @@ app.get("/", function (req, res) {
 });
 
 app.listen(PORT, function () {
-  console.log(`Listenting on port ${port}`);
+  console.log(`Listenting on port ${PORT}`);
 });
