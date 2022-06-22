@@ -21,11 +21,11 @@ export async function createJournal(journals) {
     
 }
 
-console.log(await createJournal())
+
 
 
 export async function deleteJournalbyId(id) {
-    const response = await pool.query(`DELETE FROM journal (journal_entry) WHERE id = 1 RETURNING *`)
+    const response = await pool.query(`DELETE FROM journal WHERE journal_id = $1 RETURNING *`, [id])
     // const foundIndex = journal.findIndex( function(journals) {
     //     return journals.id === id;
     //  });
@@ -35,3 +35,5 @@ export async function deleteJournalbyId(id) {
     //  return item;
      return response.rows;
 }
+
+console.log(await deleteJournalbyId(2))
