@@ -8,9 +8,12 @@ const PORT = process.env.port || 3000;
 
 //Initialise app
 const app = express();
+app.use(cors())
+app.use(express.json());
 
 // journal router
 app.use("/journal", router);
+
 
 // // create application/json parser
 // const jsonParser = bodyParser.json()
@@ -21,9 +24,6 @@ app.use("/journal", router);
 
 //hand the router to app
 // app.use("/", router);
-
-app.use(cors())
-app.use(express.json());
 
 // test route
 app.get("/", function (req, res) {
