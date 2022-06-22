@@ -14,7 +14,7 @@ export async function getJournal() {
 
 // create journals - might have to change to (movies)
 export async function createJournal(journals) {
-    const response = await pool.query("INSERT INTO journal (journal_entry) VALUES ('Hello') RETURNING *")
+    const response = await pool.query(`INSERT INTO journal (journal_entry) VALUES ('Hello') RETURNING *")
     // journal.push(journals);
     return response.rows;
     // return journal[journal.length - 1]; // Why is there - 1 and what is being returned?

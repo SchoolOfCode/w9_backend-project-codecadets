@@ -17,9 +17,9 @@ router.get('/', async function (req, res) {
 
 
 // router creates Journal  (adds to the database)
-router.post('/', function (req, res) {
+router.post('/', async function (req, res) {
 	const newJournal = req.body;
-	const result = createJournal(newJournal);
+	const result = await createJournal(newJournal);
 	console.log(result)
 	res.json({ success: true, payload: result });
 });
