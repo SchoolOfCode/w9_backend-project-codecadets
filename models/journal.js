@@ -15,10 +15,7 @@ export async function getJournal() {
 // create journals - might have to change to (movies)
 export async function createJournal(journals) {
     const response = await pool.query(`INSERT INTO journal (journal_entry) VALUES ($1) RETURNING *`, [journals])
-    // journal.push(journals);
-    return response.rows;
-    // return journal[journal.length - 1]; // Why is there - 1 and what is being returned?
-    
+    return response.rows;    
 }
 
 
@@ -26,14 +23,19 @@ export async function createJournal(journals) {
 
 export async function deleteJournalbyId(id) {
     const response = await pool.query(`DELETE FROM journal WHERE journal_id = $1 RETURNING *`, [id])
-    // const foundIndex = journal.findIndex( function(journals) {
-    //     return journals.id === id;
-    //  });
-
-    //  const item = journal[foundIndex];
-    //  journal.splice(foundIndex, 1);
-    //  return item;
      return response.rows;
 }
 
-console.log(await deleteJournalbyId(2))
+
+export async function updateJournalById(journals, id) {
+    const response = await pool.query(`UPDATE journal SET journal_entry = $1 WHERE journal_id = $2 RETURNING *`, [journals, id]);
+    return response.rows;
+};
+
+console.log(await updateJournalById("hello", 2))
+
+// UPDATE table_name
+// SET column1 = value1, column2 = value2, ...
+// WHERE condition;
+
+

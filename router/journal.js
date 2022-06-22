@@ -4,7 +4,8 @@ const router = express.Router();
 import {
 	getJournal,
 	createJournal,
-	deleteJournalbyId
+	deleteJournalbyId,
+	updateJournalById
 } from "../models/journal.js"
 
 // router get all journals
@@ -34,6 +35,11 @@ router.delete('/:id', async function (req, res) {
 });
 
 
-
+router.put('/:id', async function (req, res) {
+    const id = Number(req.params.id);
+    const data = req.body;
+    const result = await updateJournalById(id, data);
+    res.json({ success: true, payload: result });
+});
 
 export default router;
