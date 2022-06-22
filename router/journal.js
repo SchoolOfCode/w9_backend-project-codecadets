@@ -5,7 +5,8 @@ import {
 	getJournal,
 	createJournal,
 	deleteJournalbyId,
-	updateJournalById
+	updateJournalById,
+	getJournalById
 } from "../models/journal.js"
 
 // router get all journals
@@ -17,8 +18,14 @@ router.get('/', async function (req, res) {
 	});
 });
 
+// router get journals by id
+router.get('/:id', async function (req, res) {
+	const id = Number(req.params.id);
+	const journal = await getJournalById(id);
+	res.json({ success: true, payload: journal });
+});
 
-// router creates Journal  (adds to the database)
+// router creates journal (adds to the database)
 router.post('/', async function (req, res) {
 	const newJournal = req.body.journal_entry;
 	const result = await createJournal(newJournal);
@@ -27,14 +34,13 @@ router.post('/', async function (req, res) {
 
 
 // router deletes journal by ID
-
 router.delete('/:id', async function (req, res) {
 	const id = Number(req.params.id);
 	const result = await deleteJournalbyId(id);
 	res.json({ success: true, payload: result });
 });
 
-
+// router updates journal by ID
 router.put('/:id', async function (req, res) {
     const id = Number(req.params.id);
     const data = req.body;
