@@ -2,8 +2,9 @@ import express from "express";
 import cors from "cors"; 
 import bodyParser from 'body-parser';
 import router from "./router/journal.js";
-
-const PORT = process.env.port || 3000;
+import dotenv from "dotenv";
+dotenv.config();
+const PORT = process.env.PORT || 5000;
 
 //Initialise app
 const app = express();
